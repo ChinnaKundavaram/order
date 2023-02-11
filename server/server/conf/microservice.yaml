@@ -1,0 +1,4 @@
+servicecomb:
+  service:
+    name: TemplateService ##  name of the service
+    baseurl: /api/V1.0

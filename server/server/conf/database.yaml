@@ -1,0 +1,6 @@
+database:
+  host: localhost
+  user: root
+  dbname: test_db
+  password: root
+  port: 5432 
