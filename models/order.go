@@ -7,7 +7,7 @@ type Order struct {
 	Id           uint   `json:"id"`
 	Status       string `json:"status"`
 	CurrencyUnit string `json:"currenyunit"`
-	items        []item `json:"items"`
+	Items        []item `json:"items"`
 }
 
 type item struct {

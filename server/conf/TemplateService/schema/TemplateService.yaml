@@ -1,0 +1,47 @@
+swagger: "2.0"
+info:
+  title: ""
+  version: ""
+basePath: /
+paths:
+  /api/V1.0/users:
+    post:
+      operationId: CreateOrder
+      consumes:
+      - application/json
+      produces:
+      - application/json
+  /api/V1.0/users/{id}:
+    put:
+      operationId: UpdateOrder
+      consumes:
+      - application/json
+      produces:
+      - application/json
+    delete:
+      operationId: DeleteOrder
+      consumes:
+      - application/json
+      produces:
+      - application/json
+  /api/V1.0/users/{orderId}:
+    get:
+      operationId: FetchAll
+      consumes:
+      - application/json
+      produces:
+      - application/json
+  /info:
+    get:
+      operationId: VersionInfo
+      consumes:
+      - '*/*'
+      produces:
+      - '*/*'
+  /websocket:
+    get:
+      operationId: WebsocketHandler
+      consumes:
+      - '*/*'
+      produces:
+      - '*/*'

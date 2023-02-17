@@ -7,7 +7,8 @@ import (
 	"gorm.io/gorm"
 )
 
-// type global
+
+// type global	2
 
 var instance *gorm.DB
 

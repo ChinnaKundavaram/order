@@ -44,7 +44,7 @@ func (r *OrderResource) CreateOrder(context *restful.Context) {
 		return
 	}
 	fmt.Println(order)
-	data := r.ts.CreateUser(&order)
+	data := r.ts.CreateOrder(&order)
 	context.WriteHeaderAndJSON(data.Status, data, jsonHeader)
 }
 
