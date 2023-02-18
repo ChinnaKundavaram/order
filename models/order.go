@@ -6,7 +6,7 @@ type Order struct {
 	gorm.Model
 	Id           uint   `json:"id"`
 	Status       string `json:"status"`
-	CurrencyUnit string `json:"currenyunit"`
+	Currency string `json:"currency"`
 	Items        []item `json:"items"`
 }
 
