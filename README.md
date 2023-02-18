@@ -10,5 +10,5 @@ Payload for create or update an order.......
 {
     "id":int
     "status":string
-    "currencyunit":string
+    "currency":string
 }
