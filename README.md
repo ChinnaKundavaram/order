@@ -8,7 +8,15 @@ go run main.go                         [run]
 Payload for create or update an order.......
 
 {
-    "id":int
-    "status":string
-    "currencyunit":string
+    "id":          int
+    "status":      string
+    "currency":    string
+    "item":        string 
+	"itemid":      uint   
+	"description": string 
+	"price":       string 
+	"quantity":    string 
+	"total":       string
 }
+
+// Service comb(apache) need to be runninig for performin operations
