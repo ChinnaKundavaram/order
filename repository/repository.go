@@ -1,7 +1,6 @@
 package repository
 
 import (
-	"fmt"
 	"order/models"
 
 	"github.com/go-chassis/openlog"
@@ -16,9 +15,9 @@ type OrderRepository struct {
 func (ur *OrderRepository) CreateOrder(order *models.Order) (*models.Order, error) {
 	openlog.Debug("Creating order")
 
-	if ur.DbClient.Where(models.Order{Id: order.Id}).Take(&models.Order{}).Error == nil {
-		return nil, fmt.Errorf("A order already exists with the given id: %v", order.Id)
-	}
+	// if ur.DbClient.Where(models.Order{Id: order.Id}).Take(&models.Order{}).Error == nil {
+	// 	return nil, fmt.Errorf("A order already exists with the given id: %v", order.Id)
+	// }
 	result := ur.DbClient.Create(order)
 
 	if result.Error != nil {
@@ -36,7 +35,7 @@ func (ur *OrderRepository) UpdateOrder(Id string, s map[string]interface{}) (*mo
 	openlog.Debug("Updating order with id")
 	order := &models.Order{}
 
-	result := ur.DbClient.Where(models.Order{Id: order.Id}).Take(&models.Order{}).Update("status", s["status"])
+	result := ur.DbClient.Where(models.Order{ID: order.ID}).Take(&models.Order{}).Update("status", s["status"])
 	if result.Error != nil {
 		openlog.Error(result.Error.Error())
 		openlog.Error("Error occured while updating order")
@@ -48,7 +47,7 @@ func (ur *OrderRepository) UpdateOrder(Id string, s map[string]interface{}) (*mo
 func (ur *OrderRepository) DeleteOrder(Id string) error {
 	openlog.Debug("Deleting order with Id")
 	order := &models.Order{}
-	result := ur.DbClient.Where(models.Order{Id: order.Id}).Take(&models.Order{}).Delete(order)
+	result := ur.DbClient.Where(models.Order{ID: order.ID}).Take(&models.Order{}).Delete(order)
 	if result.Error != nil {
 		openlog.Error(result.Error.Error())
 		openlog.Error("Error occured while deleting order")

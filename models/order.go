@@ -1,18 +1,18 @@
 package models
 
-import gorm "gorm.io/gorm"
+import (
+	gorm "gorm.io/gorm"
+)
 
 type Order struct {
 	gorm.Model
-	Id           uint   `json:"id"`
-	Status       string `json:"status"`
-	CurrencyUnit string `json:"currenyunit"`
-	Items        []item `json:"items"`
-}
-
-type item struct {
-	Id          uint   `json:"id"`
+	ID          uint   `json:"id"`
+	Status      string `json:"status"`
+	Currency    string `json:"currency"`
+	Item        string `json:"item"`
+	Itemid      uint   `json:"itemid"`
 	Description string `json:"description"`
 	Price       string `json:"price"`
 	Quantity    string `json:"quantity"`
+	Total       string `json:"total"`
 }
