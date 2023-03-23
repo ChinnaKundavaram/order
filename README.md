@@ -9,14 +9,8 @@ Payload for create or update an order.......
 
 {
     "id":          int,
-    "status":      string,
-    "currency":    string,
-    "item":        string ,
-	"itemid":      uint,   
-	"description": string, 
-	"price":       string ,
-	"quantity":    string ,
-	"total":       string
+    "diner"   string, 
+	"foodId"  uint ,  
+	"eaterId" uint   
 }
-
 // Service comb(apache) need to be runninig for performin operations
