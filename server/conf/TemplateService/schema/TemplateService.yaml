@@ -5,6 +5,12 @@ info:
 basePath: /
 paths:
   /api/V1.0/users:
+    get:
+      operationId: FetchTop3
+      consumes:
+      - application/json
+      produces:
+      - application/json
     post:
       operationId: CreateOrder
       consumes:
@@ -20,13 +26,6 @@ paths:
       - application/json
     delete:
       operationId: DeleteOrder
-      consumes:
-      - application/json
-      produces:
-      - application/json
-  /api/V1.0/users/{orderId}:
-    get:
-      operationId: FetchAll
       consumes:
       - application/json
       produces:
