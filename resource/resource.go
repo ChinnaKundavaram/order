@@ -89,7 +89,20 @@ func (r *OrderResource) FetchAll(context *restful.Context) {
 	data := r.ts.FetchAll(int(OrderId), pageno, size, nil)
 	context.WriteHeaderAndJSON(data.Status, data, jsonHeader)
 }
+func (r *OrderResource) FetchTop3(context *restful.Context) {
+	openlog.Info("Got a request to fetch top three orders")
 
+	//filters := make(map[string]interface{})
+	// Need to add filters here
+	// foodId, err := strconv.ParseInt(context.ReadPathParameter("foodId"), 10, 32)
+	// if err != nil {
+	// 	openlog.Error("Error occured while converitng the order ID")
+	// 	context.WriteHeaderAndJSON(400, common.HTTPResponse{Status: 400, Msg: "Invalid order Id"}, jsonHeader)
+	// 	return
+	// }
+	data := r.ts.FetchTop3()
+	context.WriteHeaderAndJSON(data.Status, data, jsonHeader)
+}
 func (r *OrderResource) VersionInfo(context *restful.Context) {
 	openlog.Info("Executing version info")
 	dummy_res := struct {
@@ -130,7 +143,8 @@ func (r *OrderResource) URLPatterns() []restful.Route {
 		{Method: http.MethodPost, Path: baseurl + "/users", ResourceFunc: r.CreateOrder, Consumes: []string{"application/json"}, Produces: []string{"application/json"}},
 		{Method: http.MethodPut, Path: baseurl + "/users/{id}", ResourceFunc: r.UpdateOrder, Consumes: []string{"application/json"}, Produces: []string{"application/json"}},
 		{Method: http.MethodDelete, Path: baseurl + "/users/{id}", ResourceFunc: r.DeleteOrder, Consumes: []string{"application/json"}, Produces: []string{"application/json"}},
-		{Method: http.MethodGet, Path: baseurl + "/users/{orderId}", ResourceFunc: r.FetchAll, Consumes: []string{"application/json"}, Produces: []string{"application/json"}},
+		//{Method: http.MethodGet, Path: baseurl + "/users/{orderId}", ResourceFunc: r.FetchAll, Consumes: []string{"application/json"}, Produces: []string{"application/json"}},
+		{Method: http.MethodGet, Path: baseurl + "/users", ResourceFunc: r.FetchTop3, Consumes: []string{"application/json"}, Produces: []string{"application/json"}},
 	}
 }
 func getData(ctx *context.Context) []byte {

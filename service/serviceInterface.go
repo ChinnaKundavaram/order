@@ -10,4 +10,5 @@ type OrderServiceInterface interface {
 	UpdateOrder(Id string, s map[string]interface{}) common.HTTPResponse
 	DeleteOrder(string) common.HTTPResponse
 	FetchAll(Id, pageno, size int, filters map[string]interface{}) common.HTTPResponse
+	FetchTop3() common.HTTPResponse
 }

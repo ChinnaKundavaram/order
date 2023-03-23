@@ -66,3 +66,13 @@ func (ur *OrderRepository) FetchAll(Id, page, size int, filters map[string]inter
 	}
 	return result, nil
 }
+func (ur *OrderRepository) FetchTop3() ([]models.Order, error) {
+	openlog.Debug("Fetching top three orders")
+	result := make([]models.Order, 0)
+	d := ur.DbClient.Limit(3).Find(&result)
+	if d.Error != nil {
+		openlog.Error("Error occured while fetching errors [" + d.Error.Error() + "]")
+		return nil, d.Error
+	}
+	return result, nil
+}

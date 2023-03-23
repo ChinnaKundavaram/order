@@ -59,3 +59,11 @@ func (ts *OrderService) FetchAll(Id, page, size int, filters map[string]interfac
 	}
 	return common.HTTPResponse{Msg: "Fetched orders successfully", Data: res, Status: 200}
 }
+func (ts *OrderService) FetchTop3() common.HTTPResponse {
+	res, err := ts.Repo.FetchTop3()
+	if err != nil {
+		openlog.Error("Error occured while fetching data")
+		return common.HTTPResponse{Msg: "Error occured while fetching data", Status: 500}
+	}
+	return common.HTTPResponse{Msg: "Fetched orders successfully", Data: res, Status: 200}
+}
