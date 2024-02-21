@@ -13,4 +13,4 @@ Payload for create or update an order.......
 	"foodId"  uint ,  
 	"eaterId" uint   
 }
-// Service comb(apache) need to be runninig for performin operations
+// Service comb(apache) need to be run in the background for performing operations
